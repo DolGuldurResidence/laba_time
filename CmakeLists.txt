@@ -15,5 +15,3 @@ include_directories("inc")
 # Сказать программе, что должен быть исполняемый файл
 add_executable("${PROJECT_NAME}" laba_time.cpp inc/functions.hpp src/functions.cpp)
 
-# Копирование файла
-file(COPY "input.txt" DESTINATION "/")
