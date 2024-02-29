@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 struct point
 {
     short x;
@@ -25,7 +26,7 @@ class ellipse
 
     //поиск расстояния между двумя точками, необходим для реализации
     //методов из puclic секции
-    float distance(point fir, point sec)
+    float dist(point fir, point sec)
     {
         float square_x = pow(fir.get_x() - sec.get_x(), 2);
         float square_y = pow(fir.get_y() - sec.get_y(), 2);
@@ -37,16 +38,12 @@ public:
     //Конструктор эллипса
     ellipse(point c, point a, point b) 
     {
-        cout << "constr" << endl; 
-
         centre = c;
         set_a(a,c);
         set_b(b,c);
     }
 
-    ~ellipse(){
-        cout << "destr" << endl;
-    }
+    ~ellipse(){}
 
     //Поверка на валидность "a"
     void set_a(point a, point c)
@@ -71,34 +68,42 @@ public:
     }
 
 
-    //
+    //площадь
     double get_square()
     {
-        float square = 3.14159 * distance(centre, m_a) * distance(centre, m_b);
+        float square = 3.14159 * dist(centre, m_a) * dist(centre, m_b);
         return square;
     }
-    //
-    /*float get_perimetr()
+
+    //периметр
+    float get_perimetr()
     {
-        float perimetr = 2 * 3.14159 * sqrt((distance(centre, m_a) * distance(c, a) + distance(c, b) * distance(c, b)) / 2);
+        float perimetr = 2 * 3.14159 * sqrt((dist(centre, m_a) * dist(centre, m_a) + dist(centre, m_b) * dist(centre, m_b)) / 2);
         return perimetr;
-    }*/
+    }
 };
-
-
 
 
 int main()
 {
-    point cent = { 0,0 };
-    point am = { 5, 3 };
-    point bm = { 0, 0 };
+    setlocale(LC_ALL, "rus");
 
-    ellipse el1 = {cent, am, bm};
+    int c_x, c_y, a_x, a_y, b_x, b_y;
 
-    //cout << el1.get_square() << endl;
+    cout << "Введите натуральные х, а затем y для центра" << endl;
+    cin >> c_x; cin >> c_y; 
+    cout << "Введите натуральные х, а затем y для 'A' полуоси" << endl;
+    cin >> a_x; cin >> a_y;
+    cout << "Введите натуральные х, а затем y для 'B' полуоси" << endl;
+    cin >> b_x; cin >> b_y;
+
+    point cent = { c_x,c_y };
+    point a = { a_x, a_y };
+    point b = { b_x, b_y };
+
+    ellipse e = {cent, a, b};
     
-    cout << el1.get_square() << "sq el" << endl;
+    cout << e.get_square() << " square of ellipse" << endl;
+    cout << e.get_perimetr() << " perimetre of ellipse" << endl;
     
-
 }
