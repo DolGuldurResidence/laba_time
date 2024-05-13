@@ -1,3 +1,0 @@
-C:/Users/study/Documents/GitHub/labs/copy_strings/out/build/x64-Debug/CMakeFiles/copy_strings.dir
-C:/Users/study/Documents/GitHub/labs/copy_strings/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Users/study/Documents/GitHub/labs/copy_strings/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
